@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Registration Form</title>
-    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="register.css">
 </head>
 
 <body>
@@ -96,100 +97,5 @@
 </div>
 
 <script src="register.js"></script>
-</body>
-</html>
-
-<body>
-
-<form id="studentForm">
-
-    <h2>Register Here</h2>
-
-    <h3>Student information</h3>
-
-    <label>Name:</label>
-    <input type="text" id="fn" placeholder="First Name" required>
-    <input type="text" id="ln" placeholder="Last Name" required><br><br>
-
-    DOB:<input type="date" id="date" required><br><br>
-
-    <label>Mobile:</label>
-    <input type="number" id="number" placeholder="Mobile" required><br><br>
-
-    <label>Email:</label>
-    <input type="email" id="email" placeholder="Email" required>
-
-    <!-- ⭐ NEW USERNAME & PASSWORD -->
-    <label>Username:</label>
-    <input type="text" id="username" placeholder="Enter Username" required>
-
-    <label>Password:</label>
-    <input type="password" id="password" placeholder="Enter Password" required>
-
-    <h3>Education Details</h3>
-
-    <label>Course:</label>
-    <select id="course" onchange="checkCourse()" required>
-        <option value="" disabled selected hidden>Select course</option>
-        <option value="btech">B.Tech</option>
-        <option value="mtech">M.Tech</option>
-        <option value="mca">MCA</option>
-        <option value="msc">Msc</option>
-        <option value="other">Other</option>
-    </select><br><br>
-
-    <input type="text" id="otherCourse" placeholder="Enter other Course" style="display:none;">
-
-    <label>Branch:</label>
-    <select id="branch" onchange="checkBranch()" required>
-        <option value="" disabled selected hidden>Select Branch</option>
-        <option value="cse">CSE</option>
-        <option value="aiml">AIML</option>
-        <option value="ds">DS</option>
-        <option value="cb">CB</option>
-        <option value="ece">ECE</option>
-        <option value="EEE">EEE</option>
-        <option value="civil">CIVIL</option>
-        <option value="mech">Mech</option>
-        <option value="other">Other</option>
-    </select><br><br>
-
-    <input type="text" id="otherBranch" placeholder="Enter other Branch" style="display:none;">
-
-    <label>College Name:</label>
-    <input type="text" id="clg" placeholder="College Name">
-
-    <h3>Skills</h3>
-    <input type="checkbox" name="skills" value="python">Python <br>
-    <input type="checkbox" name="skills" value="java">Java <br>
-    <input type="checkbox" name="skills" value="web developement">Web developement <br>
-    <input type="checkbox" name="skills" value="Ai">AI <br>
-    <input type="checkbox" name="skills" value="Machine Learning">Machine Learning <br>
-
-    <h3>Permanent Address</h3>
-    <input type="text" id="pHouse" placeholder="House No"><br><br>
-    <input type="text" id="pStreet" placeholder="Street"><br><br>
-    <input type="text" id="pCity" placeholder="City"><br><br>
-    <input type="text" id="pState" placeholder="State"><br><br>
-    <input type="text" id="pPincode" placeholder="Pincode"><br><br>
-
-    <h3>Present Address</h3>
-
-    <input type="checkbox" id="sameAddress" onchange="copyAddress()">
-    Same as Permanent Address
-    <br><br>
-
-    <input type="text" id="cHouse" placeholder="House No"><br><br>
-    <input type="text" id="cStreet" placeholder="Street"><br><br>
-    <input type="text" id="cCity" placeholder="City"><br><br>
-    <input type="text" id="cState" placeholder="State"><br><br>
-    <input type="text" id="cPincode" placeholder="Pincode"><br><br>
-
-    <input type="submit" id="register" value="Register">
-
-</form>
-
-<script src="reg.js"></script>
-
 </body>
 </html>
