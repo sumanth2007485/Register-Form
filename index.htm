@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            background: linear-gradient(135deg,#1f1c2c,#2c2c54);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        form{
+            background: #2a2a3c;
+            padding: 40px;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        h1{
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label{
+            color: #bbb;
+            font-size: 16px;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            background: #3a3a52;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+        }
+
+        input:focus{
+            outline: none;
+            border-color: #9b6bff;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            background: #9b6bff;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background: #7d4cff;
+        }
+
+        a{
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #9b6bff;
+            text-decoration: none;
+            font-size:14px;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+
+        @media(max-width:480px){
+            form{
+                padding: 25px;
+            }
+            h1{
+                font-size: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<form id="loginForm">
+
+    <h1>Login To Enrole a New Course</h1>
+
+    <label>Username:</label>
+    <input id="u1" type="text" required>
+
+    <label>Password:</label>
+    <input id="p1" type="password" required>
+
+    <button type="submit">Login</button>
+
+    <a href="reg.htm">Register</a>
+
+</form>
+
+<script>
+    
+document.getElementById("loginForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    var username = document.getElementById("u1").value;
+    var password = document.getElementById("p1").value;
+
+    let storedData = JSON.parse(localStorage.getItem("studentData"));
+
+    if(storedData === null){
+        alert("No user registered! Please register first.");
+        return;
+    }
+
+    if(username === storedData.username && password === storedData.password){
+        alert("Login Successful");
+    }
+    else{
+        alert("Invalid Username or Password");
+    }
+
+});
+</script>
+</body>
+</html>
