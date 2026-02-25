@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
@@ -8,7 +7,6 @@ body {
 
 form {
     background: white;
-    width: 100%;
     max-width: 600px;
     margin: auto;
     padding: 25px;
@@ -31,6 +29,7 @@ label {
     font-weight: bold;
 }
 
+/* Inputs and Select */
 input[type="text"],
 input[type="email"],
 input[type="number"],
@@ -38,7 +37,7 @@ input[type="date"],
 input[type="password"],
 select {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -46,14 +45,16 @@ select {
     box-sizing: border-box;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: #3498db;
     outline: none;
 }
 
+/* Submit Button */
 input[type="submit"] {
-    width: 100%;
-    padding: 14px;
+    width: 200px;
+    padding: 12px;
     background-color: #3498db;
     color: white;
     border: none;
@@ -62,46 +63,64 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+/* Hover Effect */
 input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
-@media (max-width: 768px) {
-
-    body {
-        padding: 10px;
-    }
-
-    form {
-        padding: 15px;
-    }
-
-    input {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
+/* Disabled Register Button */
+input[type="submit"]:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
 }
 
-@media (max-width: 480px) {
+/* Normal Buttons */
+button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    form {
-        border-radius: 0;
-        box-shadow: none;
-    }
+button:hover {
+    background-color: #2980b9;
+}
 
-    h2 {
-        font-size: 20px;
-    }
+/* Remove spinner arrows (for number inputs) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-    h3 {
-        font-size: 16px;
-    }
+/* Education block style */
+#educationContainer div {
+    background: #f9fbfd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    text-align: center;
 }
