@@ -1,12 +1,8 @@
-/* ================= EDUCATION AUTO ADD ================= */
-
 let educationStep = 0;
 
 function showEducationOptions() {
 
     console.log("Add Education Clicked. Step:", educationStep);
-
-    const container = document.getElementById("educationContainer");
 
     if (educationStep === 0) {
         addBasicEducation("10th");
@@ -69,8 +65,6 @@ function addProfessionalEducation() {
 }
 
 
-/* ================= COUNTRY → STATE → DISTRICT ================= */
-
 let data = {
     india: {
         andhra: ["Visakhapatnam", "Vijayawada"],
@@ -121,9 +115,6 @@ function loadDistricts(type) {
     });
 }
 
-
-/* ================= COPY ADDRESS ================= */
-
 function handleCopy() {
 
     console.log("Same Address Checkbox Clicked");
@@ -133,7 +124,6 @@ function handleCopy() {
     let cPincode = document.getElementById("cPincode");
 
     if (cDoor.value || cStreet.value || cPincode.value) {
-        console.log("Current address already has data → Showing popup");
         document.getElementById("popup").style.display = "flex";
     } else {
         copyAddress();
@@ -142,21 +132,17 @@ function handleCopy() {
 }
 
 function confirmCopy() {
-    console.log("Popup Confirmed → Copying Address");
     copyAddress();
     document.getElementById("popup").style.display = "none";
     document.getElementById("sameAddress").checked = true;
 }
 
 function closePopup() {
-    console.log("Popup Closed");
     document.getElementById("popup").style.display = "none";
     document.getElementById("sameAddress").checked = false;
 }
 
 function copyAddress() {
-
-    console.log("Copying Permanent Address to Current Address");
 
     document.getElementById("cDoor").value = document.getElementById("pDoor").value;
     document.getElementById("cStreet").value = document.getElementById("pStreet").value;
@@ -176,8 +162,6 @@ function copyAddress() {
 }
 
 
-/* ================= REGEX VALIDATION ================= */
-
 const firstNameRegex = /^[A-Za-z]{3,}$/;
 const middleNameRegex = /^[A-Za-z]*$/;
 const lastNameRegex = /^[A-Za-z]{1,}$/;
@@ -186,6 +170,29 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const usernameRegex = /^.{4,}$/;
 const passwordRegex = /^.{6,}$/;
 const pincodeRegex = /^[0-9]{6}$/;
+const aadharRegex = /^[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
+
+
+const aadharInput = document.getElementById("aadhar");
+
+if (aadharInput) {
+
+    aadharInput.addEventListener("input", function () {
+
+        let value = this.value.replace(/\D/g, "");
+
+        if (value.length > 12) {
+            value = value.slice(0, 12);
+        }
+
+        let formatted = value.match(/.{1,4}/g);
+        this.value = formatted ? formatted.join("-") : value;
+
+        validateForm();
+    });
+
+}
+
 
 function validateForm() {
 
@@ -197,6 +204,7 @@ function validateForm() {
         emailRegex.test(document.getElementById("email").value.trim()) &&
         usernameRegex.test(document.getElementById("username").value.trim()) &&
         passwordRegex.test(document.getElementById("password").value.trim()) &&
+        aadharRegex.test(document.getElementById("aadhar").value.trim()) &&  
         document.getElementById("pDoor").value.trim() !== "" &&
         document.getElementById("pStreet").value.trim() !== "" &&
         document.getElementById("pCountry").value !== "" &&
@@ -216,15 +224,11 @@ function validateForm() {
 }
 
 
-/* Attach Validation to All Inputs */
-
 document.querySelectorAll("input, select").forEach(el => {
     el.addEventListener("input", validateForm);
     el.addEventListener("change", validateForm);
 });
 
-
-/* ================= SUBMIT ================= */
 
 document.getElementById("studentForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -236,6 +240,7 @@ document.getElementById("studentForm").addEventListener("submit", function(e){
     console.log("Mobile:", document.getElementById("number").value);
     console.log("Email:", document.getElementById("email").value);
     console.log("Username:", document.getElementById("username").value);
+    console.log("Aadhaar:", document.getElementById("aadhar").value);
 
     alert("Registration Successful");
 });
