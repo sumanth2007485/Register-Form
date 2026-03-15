@@ -1,3 +1,18 @@
+// Prevent selecting future dates for DOB
+const dobInput = document.getElementById("date");
+
+let today = new Date();
+let year = today.getFullYear();
+let month = String(today.getMonth() + 1).padStart(2, '0');
+let day = String(today.getDate()).padStart(2, '0');
+
+let maxDate = year + "-" + month + "-" + day;
+
+if (dobInput) {
+    dobInput.setAttribute("max", maxDate);
+}
+
+
 let educationStep = 0;
 
 function showEducationOptions() {
@@ -204,7 +219,7 @@ function validateForm() {
         emailRegex.test(document.getElementById("email").value.trim()) &&
         usernameRegex.test(document.getElementById("username").value.trim()) &&
         passwordRegex.test(document.getElementById("password").value.trim()) &&
-        aadharRegex.test(document.getElementById("aadhar").value.trim()) &&  
+        aadharRegex.test(document.getElementById("aadhar").value.trim()) &&
         document.getElementById("pDoor").value.trim() !== "" &&
         document.getElementById("pStreet").value.trim() !== "" &&
         document.getElementById("pCountry").value !== "" &&
